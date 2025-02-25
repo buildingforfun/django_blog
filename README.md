@@ -1,4 +1,4 @@
-This project is based on the Python crash course book. Notes below are from the book too!
+This project is based on the Python crash course book. Most of the rough notes below are copied from the book too for reference.
 
 ## Running project
 - activate virtual env
@@ -118,7 +118,6 @@ View
 - When a URL request matches the pattern we just defined, Django looks for a function called index() in the views.py file. Django then passes the request object to this view function. 
 - The render() function here passes two arguments—the original request object and a template it can use to build the page
 
-
 Template
 ----
 The template defines what the page should look like, and Django fills in the relevant data each time the page is requested. A template allows you to access any data provided by the view. Because our view for the home page provided no data, this template is fairly simple. 
@@ -227,7 +226,6 @@ Adding new entries
   - This URL pattern matches any URL with the form http://localhost:
 8000/new_entry/id/, where id is a number matching the topic ID
 
-
 editting entries
 ----
 - The URL for the page needs to pass the ID of the entry to be edited
@@ -257,7 +255,6 @@ login template
 - we want the login view to process the form so we set the acion argument as the URL of the login page
 - the login view sends a form to the template, and it's up to us to display the form and add a submit button
 - we include a hidden form element 'next' the vlaue argument tells django where to redirect the user after they've lgoged in successfully.
-  
 
 loggin out
 ---
@@ -291,16 +288,13 @@ connect only the data highest in the hierarchy to a user, and the lower-level
 data will follow. 
 
 Identifying Existing Users
-(ll_env)learning_log$ python manage.py shell
-u >>> from django.contrib.auth.models import User
-v >>> User.objects.all() 
+python manage.py shell
 
 Migrating the Database
 Now that we know the IDs, we can migrate the database. When we do this,
 Python will ask us to connect the Topic model to a particular owner temporarily or to add a default to our models.py file to tell it what to do
 
 python manage.py makemigrations learning_logs
-
 
 To associate all existing topics with the original admin user, ll_admin, I
 entered the user ID of 1 at z. You can use the ID of any user you’ve created;
@@ -317,9 +311,7 @@ Protecting a User’s Topics
 We haven’t restricted access to the topic pages yet, so any registered user
 could try a bunch of URLs, like http://localhost:8000/topics/1/, and retrieve
 topic pages that happen to match
-
 Associating New Topics with the Current User
-
 we have access to the current user through the request object
 
 When we first call form.save(), we pass the commit=False argument because
@@ -345,7 +337,6 @@ having someone else look over your project makes it more likely that you’ll
 spot vulnerable areas.
 You now have a fully functioning project running on your local machine.
 
-
 Styling
 ----
 For the styling we’ll use the Bootstrap library- django-bootstrap4 app
@@ -362,7 +353,7 @@ header
 - The head of an HTML file doesn’t contain any content: it just tells the browser what it needs to know to display the page correctly
 - we include a title element for the page, which will display in the browser’s title bar whenever Learning Log is open
 - we use one of django-bootstrap4’s custom template tags, which tells Django to include all the Bootstrap style files
-- . The tag that follows enables all the interactive behavior you might use on a page, such as collapsible navigation bars.
+- The tag that follows enables all the interactive behavior you might use on a page, such as collapsible navigation bars.
 
 navigation bar
 ---
@@ -374,7 +365,6 @@ we set the project’s name to appear at the far left of the navigation
 bar and make it a link to the home page; it will appear on every page in the
 project. The navbar-brand selector styles this link so it stands out from the
 rest of the links and is a way of branding the site.
-
 
 the template defines a button that appears if the browser window
 is too narrow to display the whole navigation bar horizontally. 
@@ -441,9 +431,6 @@ overwrite the live database with your local test database when you push the
 project to the server. The asterisk in *.sqlite3 tells Git to ignore any file that
 ends with the extension .sqlite3
 
-
 Pushing to Heroku - requires payment.... 
 so went to PythonAnywhere. Followed instructions from:
 https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/
-
-website: https://buildforfun.pythonanywhere.com/
